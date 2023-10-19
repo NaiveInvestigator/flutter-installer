@@ -5,5 +5,5 @@ Installation:
 ```
 git clone https://github.com/NaiveInvestigator/flutter-installer`
 cd flutter-installer
-./'install.sh'
+./install.sh
 ```
