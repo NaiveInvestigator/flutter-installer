@@ -4,7 +4,7 @@ wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/
 mkdir -p ~/Development/android
 tar xf flutter_linux_3.13.8-stable.tar.xz -C ~/Development
 
-~ Downloads and extracts the Android SDK to respective folder
+# Downloads and extracts the Android SDK to respective folder
 wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
 unzip commandlinetools-linux-10406996_latest.zip -d ~/Development/android
 cd ~/Development/android/cmdline-tools
