@@ -8,8 +8,8 @@ tar xf flutter_linux_3.13.8-stable.tar.xz -C ~/Development
 wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
 unzip commandlinetools-linux-10406996_latest.zip -d ~/Development/android
 cd ~/Development/android/cmdline-tools
-mkdir tools
-mv -i * tools
+mkdir latest
+mv -i * latest
 
 rm flutter_linux_3.13.8-stable.tar.xz
 rm commandlinetools-linux-10406996_latest.zip
@@ -17,7 +17,7 @@ rm commandlinetools-linux-10406996_latest.zip
 # Adding flutter and Android SDK to path on respective shells
 if [ -f ~/.bashrc ]; then
     echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH' >> ~/.bashrc
+    echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.bashrc
     echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.bashrc
     echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.bashrc
     echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.bashrc
@@ -26,7 +26,7 @@ fi
     
 if [ -f ~/.zshrc ]; then
     echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH' >> ~/.zshrc
+    echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.zshrc
     echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.zshrc
     echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.zshrc
     echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.zshrc
@@ -36,7 +36,7 @@ fi
 if [ -f ~/.config/fish/config.fish ]; then
     echo 'set -xg PATH "$HOME/Development/flutter/bin:$PATH"' >> ~/.config/fish/config.fish
     echo 'set -xg ANDROID_HOME "$HOME/Development/android"' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH "$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH"' >> ~/.config/fish/config.fish
+    echo 'set -xg PATH "$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH"' >> ~/.config/fish/config.fish
     echo 'set -xg PATH "$ANDROID_HOME/emulator/:$PATH"' >> ~/.config/fish/config.fish
     echo 'set -xg PATH "$ANDROID_HOME/platform-tools/:$PATH"' >> ~/.config/fish/config.fish
     source ~/.config/fish/config.fish
