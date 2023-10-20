@@ -3,7 +3,5 @@ A simple Linux script which sets up a flutter environment
 
 Installation:
 ```
-git clone https://github.com/NaiveInvestigator/flutter-installer`
-cd flutter-installer
-./install.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/NaiveInvestigator/flutter-installer/main/install.sh)"
 ```
