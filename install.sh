@@ -48,9 +48,9 @@ fi
 DNF_CMD=$(which dnf)
 APT_GET_CMD=$(which apt-get)
 if [[ ! -z $DNF_CMD ]]; then
-    sudo dnf install -y clang cmake gcc ninja-build pkgconf-pkg-config gtk3-devel lzma-sdk-devel android-tools scrcpy
+    sudo dnf install -y clang cmake gcc ninja-build pkgconf-pkg-config gtk3-devel lzma-sdk-devel android-tools scrcpy java
 elif [[ ! -z $APT_GET_CMD ]]; then
-    sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev android-sdk-platform-tools scrcpy
+    sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev android-sdk-platform-tools scrcpy default-jre
 fi
 
 # Installs latest android SDK commandline tools
