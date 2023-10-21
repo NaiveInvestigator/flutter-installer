@@ -13,8 +13,8 @@ rm flutter_linux_3.13.8-stable.tar.xz
 rm commandlinetools-linux-10406996_latest.zip
 
 cd ~/Development/android/cmdline-tools
-mkdir tools
-mv -i * tools
+mkdir old
+mv -i * old
 
 # Adding flutter and Android SDK to path on respective shells
 if [ -f ~/.bashrc ]; then
@@ -54,10 +54,10 @@ elif [[ ! -z $APT_GET_CMD ]]; then
 fi
 
 # Installs latest android SDK commandline tools
-$ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest"
+$ANDROID_HOME/cmdline-tools/old/bin/sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest"
 
 # Delete old sdkmanager
-rm -r tools
+rm -r old
 
 # Installs dependences for building apps on android
 sdkmanager "platforms;android-33" "build-tools;33.0.2" "extras;google;m2repository" "extras;android;m2repository" "platform-tools" "tools" "emulator"
