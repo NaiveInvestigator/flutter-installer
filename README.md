@@ -13,6 +13,9 @@ A simple Linux script which sets up a flutter environment.
 
 ## TODO:
 * Add uninstall script
+* Add option to select what toolchains to install
+* Add helpful error messages on the script and mention how to diagnose them
+* Add guides on how to do it manually in the event when everything fails
 * You tell me! :>
 
 ## Credits:
