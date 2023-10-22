@@ -13,11 +13,11 @@ A simple Linux script which sets up a flutter environment.
 * Automatically accepts all the needed licences so that you can get to work instantly
 
 ## TODO:
-* Add uninstall script
-* Add option to select what toolchains to install
-* Add helpful error messages on the script and mention how to diagnose them
-* Add guides on how to do it manually in the event when everything fails
-* You tell me! :>
+- [ ] Add uninstall script
+- [ ] Add option to select what toolchains to install
+- [ ] Add helpful error messages on the script and mention how to diagnose them
+- [ ] Add guides on how to do it manually in the event when everything fails
+- [ ] You tell me! :>
 
 ## Credits:
 These guides helped me write this script. Without them this script would definitely not exist!
