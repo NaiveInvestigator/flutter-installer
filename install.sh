@@ -71,7 +71,7 @@ flutter upgrade
 clear
 
 # Checks if everything is installed or not
-flutter doctor
+flutter doctor -v
 
 echo 'Close this terminal session and open a new one, you should be able now run flutter!'
 
