@@ -10,6 +10,7 @@ A simple Linux script which sets up a flutter environment.
 * Works on any debian, ubuntu or fedora based distro. (did not include arch cause they have already package for it)
 * Supports bash, zsh and fish shell.
 * Installs Android SDK without needing Android Studio.
+* Automatically accepts all the needed licences so that you can get to work instantly
 
 ## TODO:
 * Add uninstall script

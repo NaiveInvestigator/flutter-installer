@@ -54,7 +54,7 @@ elif [[ ! -z $APT_GET_CMD ]]; then
 fi
 
 # Installs latest android SDK commandline tools
-$ANDROID_HOME/cmdline-tools/old/bin/sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest"
+yes | $ANDROID_HOME/cmdline-tools/old/bin/sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest"
 
 # Delete old sdkmanager
 rm -r old
@@ -62,11 +62,12 @@ rm -r old
 # Installs dependences for building apps on android
 sdkmanager "platforms;android-33" "build-tools;33.0.2" "extras;google;m2repository" "extras;android;m2repository" "platform-tools" "tools" "emulator"
 
-# Accepts all the required licenses, refer a lawyer on this if u want to do this properly or blindly say yes to the google overlords
-flutter doctor --android-licenses
-
 # Updates flutter to latest version
 flutter upgrade
+
+# Automatically accepts all the required licenses, refer a lawyer on this if u want to do this properly or blindly say yes to the google overlords
+yes | sdkmanager --licenses
+yes | flutter doctor --android-licenses
 
 clear
 
