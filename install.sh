@@ -9,9 +9,11 @@ tar xf flutter_linux_3.13.8-stable.tar.xz -C ~/Development
 wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
 unzip commandlinetools-linux-10406996_latest.zip -d ~/Development/android
 
+# Cleans up downloaded archives
 rm flutter_linux_3.13.8-stable.tar.xz
 rm commandlinetools-linux-10406996_latest.zip
 
+# moves downloaded adkmanager to the old folder
 cd ~/Development/android/cmdline-tools
 mkdir old
 mv -i * old
