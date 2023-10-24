@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# installs dependencies for building flutter apps in linux and some nice-to-have for android app development
+DNF_CMD=$(which dnf)
+APT_GET_CMD=$(which apt-get)
+if [[ ! -z $DNF_CMD ]]; then
+    sudo dnf install -y clang cmake gcc ninja-build pkgconf-pkg-config gtk3-devel lzma-sdk-devel android-tools scrcpy java
+elif [[ ! -z $APT_GET_CMD ]]; then
+    sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev android-sdk-platform-tools scrcpy default-jre
+fi
+
 # Downloads and extract flutter to respective folder
 wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.8-stable.tar.xz
 mkdir -p ~/Development/android
@@ -46,15 +55,6 @@ if [ -f ~/.config/fish/config.fish ]; then
     echo "set -xg PATH $ANDROID_HOME/emulator/:$PATH" >> ~/.config/fish/config.fish
     echo "set -xg PATH $ANDROID_HOME/platform-tools/:$PATH" >> ~/.config/fish/config.fish
     source ~/.config/fish/config.fish
-fi
-
-# installs dependencies for building flutter apps in linux and some nice-to-have for android app development
-DNF_CMD=$(which dnf)
-APT_GET_CMD=$(which apt-get)
-if [[ ! -z $DNF_CMD ]]; then
-    sudo dnf install -y clang cmake gcc ninja-build pkgconf-pkg-config gtk3-devel lzma-sdk-devel android-tools scrcpy java
-elif [[ ! -z $APT_GET_CMD ]]; then
-    sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev android-sdk-platform-tools scrcpy default-jre
 fi
 
 # Installs latest android SDK commandline tools
