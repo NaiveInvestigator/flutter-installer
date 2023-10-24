@@ -16,33 +16,35 @@ rm commandlinetools-linux-10406996_latest.zip
 # moves downloaded adkmanager to the old folder
 cd ~/Development/android/cmdline-tools
 mkdir old
-mv -i * old
+shopt -s extglob dotglob
+mv !(old) old
+shopt -u dotglob
 
 # Adding flutter and Android SDK to path on respective shells
 if [ -f ~/.bashrc ]; then
-    echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.bashrc
-    echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.bashrc
+    echo "export ANDROID_HOME=$HOME/Development/android" >> ~/.bashrc
+    echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH" >> ~/.bashrc
+    echo "export PATH=$ANDROID_HOME/emulator/:$PATH" >> ~/.bashrc
+    echo "export PATH=$ANDROID_HOME/platform-tools/:$PATH" >> ~/.bashrc
+    echo "export PATH=$HOME/Development/flutter/bin/:$PATH" >> ~/.bashrc
     source ~/.bashrc
 fi
     
 if [ -f ~/.zshrc ]; then
-    echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.zshrc
-    echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.zshrc
+    echo "export ANDROID_HOME=$HOME/Development/android" >> ~/.zshrc
+    echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH" >> ~/.zshrc
+    echo "export PATH=$ANDROID_HOME/emulator/:$PATH" >> ~/.zshrc
+    echo "export PATH=$ANDROID_HOME/platform-tools/:$PATH" >> ~/.zshrc
+    echo "export PATH=$HOME/Development/flutter/bin/:$PATH" >> ~/.zshrc
     source ~/.zshrc
 fi
 
 if [ -f ~/.config/fish/config.fish ]; then
-    echo 'set -xg PATH "$HOME/Development/flutter/bin:$PATH"' >> ~/.config/fish/config.fish
-    echo 'set -xg ANDROID_HOME "$HOME/Development/android"' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH "$ANDROID_HOME/cmdline-tools/latest/bin/:$PATH"' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH "$ANDROID_HOME/emulator/:$PATH"' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH "$ANDROID_HOME/platform-tools/:$PATH"' >> ~/.config/fish/config.fish
+    echo "set -xg PATH $HOME/Development/flutter/bin:$PATH" >> ~/.config/fish/config.fish
+    echo "set -xg ANDROID_HOME $HOME/Development/android" >> ~/.config/fish/config.fish
+    echo "set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin/:$PATH" >> ~/.config/fish/config.fish
+    echo "set -xg PATH $ANDROID_HOME/emulator/:$PATH" >> ~/.config/fish/config.fish
+    echo "set -xg PATH $ANDROID_HOME/platform-tools/:$PATH" >> ~/.config/fish/config.fish
     source ~/.config/fish/config.fish
 fi
 
@@ -56,7 +58,7 @@ elif [[ ! -z $APT_GET_CMD ]]; then
 fi
 
 # Installs latest android SDK commandline tools
-yes | $ANDROID_HOME/cmdline-tools/old/bin/sdkmanager --sdk_root=$ANDROID_HOME "cmdline-tools;latest"
+yes | "$ANDROID_HOME"/cmdline-tools/old/bin/sdkmanager --sdk_root="$ANDROID_HOME" "cmdline-tools;latest"
 
 # Delete old sdkmanager
 rm -r old
@@ -77,4 +79,3 @@ clear
 flutter doctor -v
 
 echo 'Close this terminal session and open a new one, you should be able now run flutter!'
-
