@@ -36,7 +36,7 @@ if [ -f ~/.bashrc ]; then
     echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.bashrc
     echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.bashrc
     echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.bashrc
-    source ~/.bashrc
+    . ~/.bashrc
 fi
     
 if [ -f ~/.zshrc ]; then
@@ -45,7 +45,7 @@ if [ -f ~/.zshrc ]; then
     echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.zshrc
     echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.zshrc
     echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.zshrc
-    source ~/.zshrc
+    . ~/.zshrc
 fi
 
 if [ -f ~/.config/fish/config.fish ]; then
@@ -54,7 +54,7 @@ if [ -f ~/.config/fish/config.fish ]; then
     echo 'set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/emulator/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/platform-tools/:$PATH' >> ~/.config/fish/config.fish
-    source ~/.config/fish/config.fish
+    . ~/.config/fish/config.fish
 fi
 
 # Installs latest android SDK commandline tools
