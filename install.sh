@@ -9,17 +9,17 @@ elif [[ ! -z $APT_GET_CMD ]]; then
     sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev android-sdk-platform-tools scrcpy default-jre
 fi
 
-# Downloads and extract flutter to respective folder
-wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.8-stable.tar.xz
-mkdir -p ~/Development/android
-tar xf flutter_linux_3.13.8-stable.tar.xz -C ~/Development
+# Downloads and installs flutter to respective folder
+git clone https://github.com/flutter/flutter.git -b stable ~/Development/flutter
+
+# Downloads necessary development binaries
+flutter precache
 
 # Downloads and extracts the Android SDK to respective folder
 wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
 unzip commandlinetools-linux-10406996_latest.zip -d ~/Development/android
 
-# Cleans up downloaded archives
-rm flutter_linux_3.13.8-stable.tar.xz
+# Cleans up downloaded archive
 rm commandlinetools-linux-10406996_latest.zip
 
 # moves downloaded adkmanager to the old folder
@@ -50,7 +50,7 @@ fi
 
 if [ -f ~/.config/fish/config.fish ]; then
     echo 'set -xg PATH $HOME/Development/flutter/bin:$PATH' >> ~/.config/fish/config.fish
-    echo 'set -xg ANDROID_HOME $HOME/Development/android' >> ~/.config/fish/config.fish
+    echo 'set -xg ANDROID_HOME $HOME/Development/android' >> ~/.co nfig/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/emulator/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/platform-tools/:$PATH' >> ~/.config/fish/config.fish
@@ -58,16 +58,13 @@ if [ -f ~/.config/fish/config.fish ]; then
 fi
 
 # Installs latest android SDK commandline tools
-yes | "$ANDROID_HOME"/cmdline-tools/old/bin/sdkmanager --sdk_root="$ANDROID_HOME" "cmdline-tools;latest"
+yes | ~/Development/android/cmdline-tools/old/bin/sdkmanager --sdk_root="~/Development/android/" "cmdline-tools;latest"
 
 # Delete old sdkmanager
 rm -r old
 
 # Installs dependences for building apps on android
 sdkmanager "platforms;android-33" "build-tools;33.0.2" "extras;google;m2repository" "extras;android;m2repository" "platform-tools" "tools" "emulator"
-
-# Updates flutter to latest version
-flutter upgrade
 
 # Automatically accepts all the required licenses, refer a lawyer on this if u want to do this properly or blindly say yes to the google overlords
 yes | sdkmanager --licenses
