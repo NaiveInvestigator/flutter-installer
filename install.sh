@@ -12,9 +12,6 @@ fi
 # Downloads and installs flutter to respective folder
 git clone https://github.com/flutter/flutter.git -b stable ~/Development/flutter
 
-# Downloads necessary development binaries
-flutter precache
-
 # Downloads and extracts the Android SDK to respective folder
 wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
 unzip commandlinetools-linux-10406996_latest.zip -d ~/Development/android
@@ -62,6 +59,9 @@ yes | ~/Development/android/cmdline-tools/old/bin/sdkmanager --sdk_root="~/Devel
 
 # Delete old sdkmanager
 rm -r old
+
+# Downloads necessary development binaries
+flutter precache
 
 # Installs dependences for building apps on android
 sdkmanager "platforms;android-33" "build-tools;33.0.2" "extras;google;m2repository" "extras;android;m2repository" "platform-tools" "tools" "emulator"
