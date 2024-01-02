@@ -47,7 +47,7 @@ fi
 
 if [ -f ~/.config/fish/config.fish ]; then
     echo 'set -xg PATH $HOME/Development/flutter/bin:$PATH' >> ~/.config/fish/config.fish
-    echo 'set -xg ANDROID_HOME $HOME/Development/android' >> ~/.co nfig/fish/config.fish
+    echo 'set -xg ANDROID_HOME $HOME/Development/android' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/emulator/:$PATH' >> ~/.config/fish/config.fish
     echo 'set -xg PATH $ANDROID_HOME/platform-tools/:$PATH' >> ~/.config/fish/config.fish
