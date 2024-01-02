@@ -55,7 +55,7 @@ if [ -f ~/.config/fish/config.fish ]; then
 fi
 
 # Installs latest android SDK commandline tools
-yes | ~/Development/android/cmdline-tools/old/bin/sdkmanager --sdk_root="~/Development/android/" "cmdline-tools;latest"
+yes | ~/Development/android/cmdline-tools/old/bin/sdkmanager --sdk_root="$HOME/Development/android/" "cmdline-tools;latest"
 
 # Delete old sdkmanager
 rm -r old
