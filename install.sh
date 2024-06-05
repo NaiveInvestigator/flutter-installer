@@ -30,27 +30,27 @@ shopt -u dotglob
 if [ -f ~/.bashrc ]; then
     echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.bashrc
     echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.bashrc
-    echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.bashrc
-    echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.bashrc
+    echo 'export PATH=$ANDROID_HOME/emulator:$PATH' >> ~/.bashrc
+    echo 'export PATH=$ANDROID_HOME/platform-tools:$PATH' >> ~/.bashrc
+    echo 'export PATH=$HOME/Development/flutter/bin:$PATH' >> ~/.bashrc
     . ~/.bashrc
 fi
-    
+
 if [ -f ~/.zshrc ]; then
     echo 'export ANDROID_HOME=$HOME/Development/android' >> ~/.zshrc
     echo 'export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/emulator/:$PATH' >> ~/.zshrc
-    echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.zshrc
-    echo 'export PATH=$HOME/Development/flutter/bin/:$PATH' >> ~/.zshrc
+    echo 'export PATH=$ANDROID_HOME/emulator:$PATH' >> ~/.zshrc
+    echo 'export PATH=$ANDROID_HOME/platform-tools:$PATH' >> ~/.zshrc
+    echo 'export PATH=$HOME/Development/flutter/bin:$PATH' >> ~/.zshrc
     . ~/.zshrc
 fi
 
 if [ -f ~/.config/fish/config.fish ]; then
-    echo 'set -xg PATH $HOME/Development/flutter/bin:$PATH' >> ~/.config/fish/config.fish
-    echo 'set -xg ANDROID_HOME $HOME/Development/android' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH $ANDROID_HOME/cmdline-tools/latest/bin/:$PATH' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH $ANDROID_HOME/emulator/:$PATH' >> ~/.config/fish/config.fish
-    echo 'set -xg PATH $ANDROID_HOME/platform-tools/:$PATH' >> ~/.config/fish/config.fish
+    echo 'set -x ANDROID_HOME $HOME/Development/android' >> ~/.config/fish/config.fish
+    echo 'fish_add_path $HOME/Development/flutter/bin' >> ~/.config/fish/config.fish
+    echo 'fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin' >> ~/.config/fish/config.fish
+    echo 'fish_add_path $ANDROID_HOME/emulator' >> ~/.config/fish/config.fish
+    echo 'fish_add_path $ANDROID_HOME/platform-tools' >> ~/.config/fish/config.fish
     . ~/.config/fish/config.fish
 fi
 
